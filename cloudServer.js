@@ -1,10 +1,9 @@
 var zetta = require('./zetta2.0-runtime/zetta');
 
-var PORT = process.env.PORT || 3000;
+var PORT = 1337;
 
 zetta()
-  .name('cloud')
-  .expose('*')
+  .name('eclub-iot-cloud')
   .listen(PORT, function(err) {
     if(err) {
       console.error(err);
@@ -12,3 +11,8 @@ zetta()
     }
     console.log('running on http://localhost:', PORT)
   });
+
+
+
+//removed
+//.expose('*')
