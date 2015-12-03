@@ -1,4 +1,4 @@
-# zetta2.0
+# Zetta on steroids
 eClub Zetta enters new era
 
 There are two main folders
