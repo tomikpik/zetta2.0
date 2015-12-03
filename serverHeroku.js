@@ -1,4 +1,4 @@
-var zetta = require('./zetta/zetta');
+var zetta = require('./zetta2.0-runtime/zetta');
 
 var PORT = process.env.PORT || 3000;
 
