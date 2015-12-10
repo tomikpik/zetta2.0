@@ -14,3 +14,4 @@ Next important folder is **esense** which contains:
 - **modules**: should contain our modules which we are going to need (authentication, database etc.)
 - **drivers**: drivers for various devices
 
+It uses node.js version 4.2.3LTS
