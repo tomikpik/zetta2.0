@@ -5,14 +5,14 @@ var mockLed = require('../drivers/mock-led');
 
 var templateScout = module.exports = function() {
   Scout.call(this);
-  this.name="template1";
+  this.name="template2";
 
 };
 util.inherits(templateScout, Scout);
 
 templateScout.prototype.init = function(next) {
 
-  this.discover(mockLed,"1");
+  this.discover(mockLed,"2");
 
 
 

@@ -3,12 +3,14 @@ var zetta = require('../zetta2.0-runtime/zetta');
 var PORT = 1337;
 
 var templateScout = require('../esense/scouts/scout_template');
+var templateScout2 = require('../esense/scouts/scout_template2');
 
 
 zetta()
   .name('eclub-iot-hub')
   .link('http://zettor.sin.cvut.cz:1337')
   .use(templateScout)
+  .use(templateScout2)
   .listen(PORT, function(err) {
     if(err) {
       console.error(err);
