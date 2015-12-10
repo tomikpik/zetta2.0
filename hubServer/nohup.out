@@ -1,0 +1,31 @@
+[32mDec-09-2015 15:23:54 [39m[34m[server] Server (eclub-iot-hub) eclub-iot-hub listening on http://127.0.0.1:1337[39m
+running on http://localhost: 1337
+[32mDec-09-2015 15:23:55 [39m[34m[scout] Device (145) 4E941 was discovered[39m
+[32mDec-09-2015 15:23:55 [39m[34m[scout] Device (145) 4E5AA was discovered[39m
+[32mDec-09-2015 15:23:55 [39m[34m[scout] Device (145) DC83C6 was discovered[39m
+[32mDec-09-2015 15:23:55 [39m[34m[peer-client] WebSocket to peer established (ws://zettor.sin.cvut.cz:1337/peers/eclub-iot-hub)[39m
+[32mDec-09-2015 15:23:55 [39m[34m[peer-client] Peer connection established (ws://zettor.sin.cvut.cz:1337/peers/eclub-iot-hub)[39m
+[32mDec-09-2015 15:24:01 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-09-2015 15:24:03 [39m[34m[device] 145 transition turn-on[39m
+[32mDec-09-2015 15:24:06 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-09-2015 15:24:08 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-09-2015 15:24:14 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-09-2015 15:24:19 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-09-2015 15:24:30 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-09-2015 15:24:32 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-09-2015 15:24:48 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-09-2015 15:24:50 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-09-2015 15:25:50 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-09-2015 15:25:53 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-10-2015 08:55:53 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-10-2015 08:55:55 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-10-2015 09:02:02 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-10-2015 09:02:04 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-10-2015 09:02:48 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-10-2015 09:02:50 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-10-2015 10:04:23 [39m[34m[device] 145 transition turn-on[39m
+[32mDec-10-2015 10:04:34 [39m[34m[device] 145 transition turn-off[39m
+[32mDec-10-2015 10:39:12 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-10-2015 10:39:14 [39m[34m[device] 145 transition turn-all-off[39m
+[32mDec-10-2015 11:03:16 [39m[34m[device] 145 transition turn-all-on[39m
+[32mDec-10-2015 11:03:19 [39m[34m[device] 145 transition turn-all-off[39m
