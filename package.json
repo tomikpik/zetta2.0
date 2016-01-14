@@ -20,7 +20,6 @@
     "node-uuid": "^1.4.1",
     "revolt": "^0.7.0",
     "rx": "~2.2.20",
-    "serialpor": "2.0.5",
     "serialport": "^2.0.5",
     "spdy": "^1.32.0",
     "strftime": "~0.8.0",
