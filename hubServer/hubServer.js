@@ -1,4 +1,5 @@
 var zetta = require('../zetta2.0-runtime/zetta');
+var illumThreshold = require('../esense/apps/illumThreshold');
 
 var PORT = 1337;
 
@@ -8,9 +9,9 @@ var JablotronScout = require('../esense/scouts/scout_jablotron');
 
 zetta()
   .name('eclub-iot-hub')
-  .link('http://zettor.sin.cvut.cz:1337')
   .use(MqttScout)
-  .use(JablotronScout)
+  .use(illumThreshold)
+  //.use(JablotronScout)
   .listen(PORT, function(err) {
     if(err) {
       console.error(err);
