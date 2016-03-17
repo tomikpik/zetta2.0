@@ -3,6 +3,7 @@ var util = require('util');
 
 var mqtt = require('mqtt');
 var esp8266gpio = require('../drivers/esp8266-gpio');
+var esp8266helper = require('../drivers/esp8266-helper');
 var client;
 
 
@@ -13,7 +14,8 @@ var MqttScout= module.exports = function() {
 util.inherits(MqttScout, Scout);
 
 MqttScout.prototype.init = function(next) {
-	//this.discover(esp8266gpio,"4AAC4");
+	helper = this.discover(esp8266helper,"helper");
+
 	var self = this;
 	client=mqtt.connect({port:41235,host:"localhost"});
 
@@ -30,6 +32,8 @@ MqttScout.prototype.init = function(next) {
         		self.newData(message.toString().split(":"),"MQTT_ACK");
       		}
   	});
+
+	helper.set(client,this.server);
 	next();
 };
 

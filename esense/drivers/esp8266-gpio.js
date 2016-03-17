@@ -25,22 +25,22 @@ ESP8266.prototype.init = function(config) {
 			.type('145')
 			.state('ON')
 			
-.when('ON',{allow:['turn-off','turn-all-on','turn-all-off','set-illumThreshold']})
+.when('ON',{allow:['turn-off','set-illumThreshold']})
 			
-.when('OFF',{allow:['turn-on','turn-all-on','turn-all-off','set-illumThreshold']})
+.when('OFF',{allow:['turn-on','set-illumThreshold']})
 
 
 			//.when('connected',{allow:['disconnect','send-message']})
-			.monitor('rssi')
-			.monitor('increment')
+			//.monitor('rssi')
+			//.monitor('increment')
 			.monitor('illumination')
-			.monitor('pressure')
-			.monitor('temperature')
-			.monitor('illumThreshold')
+			//.monitor('pressure')
+			//.monitor('temperature')
+			//.monitor('illumThreshold')
 			.map('turn-off',this.gpio_turnOff)
 			.map('turn-on',this.gpio_turnOn)
-			.map('turn-all-off',this.gpio_turnAllOff)
-			.map('turn-all-on',this.gpio_turnAllOn)
+			//.map('turn-all-off',this.gpio_turnAllOff)
+			//.map('turn-all-on',this.gpio_turnAllOn)
 			.map('set-illumThreshold',this.setIllumThreshold,[{type:'number',name:'illumThreshold'}]);
 			
 };

@@ -1,7 +1,7 @@
 var device = require('zetta-device');
 var util = require('util');
 var convertHex = require('convert-hex');
-var request = require("request");
+//var request = require("request");
 
 var NordicBaroTempHumi = module.exports = function(uuid) {
 	device.call(this);
@@ -35,7 +35,8 @@ NordicBaroTempHumi.prototype.processData = function(device, packet) {
 	this.humidity=packet[12];
 	this.vbat=parseInt("0x"+convertHex.bytesToHex([packet[14],packet[15]]),16);
 	this.rssi=packet[16]-256;
-	
+
+	/*
 	var key = "";
 	if(this._uuid=="30303001"){
 		key="5QS61N9880TU4I6O";
@@ -45,4 +46,5 @@ NordicBaroTempHumi.prototype.processData = function(device, packet) {
 
 	
 	request("http://api.thingspeak.com/update?key="+key+"&field1="+this.vbat+"&field2="+this.temperature+"&field3="+this.pressure+"&field4="+this.humidity);
+        */
 };
