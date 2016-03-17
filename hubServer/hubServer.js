@@ -7,6 +7,7 @@ var PORT = 1337;
 var MqttScout = require('../esense/scouts/scout_mqtt');
 var JablotronScout = require('../esense/scouts/scout_jablotron');
 var bleScout = require('../esense/scouts/scout_ble');
+var LoraScout = require('../esense/scouts/scout_lora');
 
 
 zetta()
@@ -17,6 +18,7 @@ zetta()
   .use(location)
   .use(JablotronScout)
   .use(bleScout)
+  .use(LoraScout)
   .listen(PORT, function(err) {
     if(err) {
       console.error(err);
