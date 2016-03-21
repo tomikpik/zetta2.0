@@ -7,6 +7,7 @@ var delay=100;
 
 
 var LoRaLight = require('../drivers/LoRaLight');
+var LoRaLightSensor = require('../drivers/LoRaLightSensor');
 
 var LoraScout= module.exports = function() {
     this.lastSent=(new Date).getTime();
@@ -21,8 +22,13 @@ LoraScout.prototype.init = function(next) {
     var queue = new Array();
     
     
-    var dev1 = this.discover(LoRaLight, "0004A30B001B2898");
+    var dev1 = this.discover(LoRaLight, "0004A30B001B28AB");
     dev1.setQueue(queue);
+    
+
+    var dev3 = this.discover(LoRaLightSensor, "0004A30B001B2898");
+
+
     
     var dev2 = this.discover(LoRaLight, "0004A30B001B9BEE");
     dev2.setQueue(queue);
@@ -44,8 +50,7 @@ LoraScout.prototype.init = function(next) {
     });
     
     serialPort.on('data', function(data) {
-        
-        
+                
         if(data.indexOf("radio_tx_ok")!=-1){
             serialPort.write("radio rx 0\r\n");     
             self.lastSent=(new Date).getTime();
@@ -78,8 +83,8 @@ LoraScout.prototype.init = function(next) {
             
             
             var a = data.split("  ")[1];
-                  
-            if(a.length==26){
+ 	    console.log(a,a.length);
+            if(a.length==30){
                 if(a.indexOf('42')==0){
                     var uuid = a.substr(2,16);
                     var increment = parseInt("0x"+a.substr(18,2),16);
@@ -104,8 +109,17 @@ LoraScout.prototype.init = function(next) {
                             }    
                         }                          
                     }                    
-                }   
-            }  
+                } else if(a.indexOf('41')==0){
+                    var uuid = a.substr(2,16);
+	    	    var device = self.server._jsDevices[uuid.toUpperCase()];
+			
+                    if(device != undefined) {
+                        device.processData(a);  
+                    }	
+			
+		}
+  			
+            }
             serialPort.write("radio rx 0\r\n"); 
             self.lastSent=(new Date).getTime();  
         }
@@ -135,7 +149,7 @@ LoraScout.prototype.newData = function(data,channel,peripheral){
 
 LoraScout.prototype.setupDongle = function(){
   setTimeout(function(){ serialPort.write("sys reset\r\n") }, 0);
-  setTimeout(function(){ serialPort.write("sys get ver\r\n") }, 100);
+  //setTimeout(function(){ serialPort.write("sys get ver\r\n") }, 100);
   setTimeout(function(){ serialPort.write("radio set pwr 0\r\n") }, 200);
   setTimeout(function(){ serialPort.write("radio set bw 500\r\n") }, 300);
   setTimeout(function(){ serialPort.write("radio set sf sf7\r\n") }, 400);
