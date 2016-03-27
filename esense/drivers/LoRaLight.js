@@ -30,6 +30,7 @@ LoRaLight.prototype.processData = function(increment,pwm,type) {
     this.increment=increment;
     this.power=pwm;
     
+
     var uuid = this._uuid;
     var q=undefined;
     var o = this._queue.find(function(obj,index){
@@ -39,6 +40,7 @@ LoRaLight.prototype.processData = function(increment,pwm,type) {
     
     if(o!=undefined){
         if(pwm==o.value){
+	    console.log(">>>>>>>>>>>>",new Date().getTime());	
             o.cbArray.forEach(function(callback){
                callback(); 
             });
@@ -51,8 +53,8 @@ LoRaLight.prototype.processData = function(increment,pwm,type) {
 LoRaLight.prototype.setIllum = function(value,cb){
     if(value<0)value=0;
     if(value>255)value=255;
-    
-    
+    console.log(">>>>>>>>>>>>",new Date().getTime());	
+  
     var uuid = this._uuid;
     var o = this._queue.find(function(obj){
         console.log(obj.uuid,(obj.uuid===uuid));

@@ -16,9 +16,9 @@ zetta()
   .use(MqttScout)
   .use(illumThreshold)
   .use(location)
-  .use(JablotronScout)
+  //.use(JablotronScout)
   .use(bleScout)
-  .use(LoraScout)
+  //.use(LoraScout)
   .listen(PORT, function(err) {
     if(err) {
       console.error(err);

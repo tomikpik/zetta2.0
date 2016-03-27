@@ -44,7 +44,7 @@ LoraScout.prototype.init = function(next) {
     }, 3000);
 
 
-    serialPort = new SerialPort("/dev/ttyUSB1", {
+    serialPort = new SerialPort("/dev/ttyUSB0", {
         baudrate: 57600,
         parser: serialport.parsers.readline("\r\n")
     });
