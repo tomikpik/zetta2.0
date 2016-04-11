@@ -17,6 +17,7 @@ module.exports = function(server) {
           if(light.available('turn-off')){
 	    console.log("Threshold turn off");
   	    light.call('turn-off');
+
 	  }
         } 
       }

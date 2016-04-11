@@ -5,6 +5,7 @@ var mqtt = require('mqtt');
 var esp8266gpio = require('../drivers/esp8266-gpio');
 var esp8266gpioV2 = require('../drivers/esp8266-gpioV2');
 var esp8266helper = require('../drivers/esp8266-helper');
+var PIDhelper = require('../drivers/PID-helper');
 var client;
 
 
@@ -16,6 +17,7 @@ util.inherits(MqttScout, Scout);
 
 MqttScout.prototype.init = function(next) {
 	helper = this.discover(esp8266helper,"helper");
+	PIDhelper = this.discover(PIDhelper,"PIDhelper");
 
 	var self = this;
 	client=mqtt.connect({port:41235,host:"localhost"});

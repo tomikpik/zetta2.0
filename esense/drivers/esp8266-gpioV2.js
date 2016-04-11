@@ -7,7 +7,7 @@ var ESP8266V2 = module.exports = function(uuid) {
 	this._uuid = uuid;
 	this.id = uuid;
 	this._client=undefined;
-	this.power=NaN;
+	this.power=0;
 	this.version="";
 	this.increment=0;
 	this._callbacks=[];

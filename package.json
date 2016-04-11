@@ -34,7 +34,10 @@
     "zetta-rels": "^0.5.0",
     "zetta-scientist": "^0.5.0",
     "zetta-scout": "^0.6.0",
-    "zetta-streams": "^0.3.0"
+    "zetta-streams": "^0.3.0",
+    "node-pid-controller": "1.0.0",
+    "pid-controller": "1.0.3"
+
   },
   "devDependencies": {
     "memdown": "^0.10.2",

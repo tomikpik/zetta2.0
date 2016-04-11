@@ -73,6 +73,6 @@ LoRaLightSensor.prototype.processData = function(data) {
 			this.illumination= result<<5;
 			break;
 	}
-	console.log(this.increment,this.illumination);
+	//console.log(this.increment,this.illumination);
     }    
 };

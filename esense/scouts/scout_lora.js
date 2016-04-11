@@ -83,7 +83,7 @@ LoraScout.prototype.init = function(next) {
             
             
             var a = data.split("  ")[1];
- 	    console.log(a,a.length);
+ 	    //console.log(a,a.length);
             if(a.length==30){
                 if(a.indexOf('42')==0){
                     var uuid = a.substr(2,16);
