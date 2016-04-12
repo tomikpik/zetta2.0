@@ -1,7 +1,11 @@
+//load necessary libraries
 var device = require('zetta-device');
 var util = require('util');
 var uuid = require('uuid');
 
+/**
+ * Export
+ */
 var PIDhelper = module.exports = function(uuid) {
 	device.call(this);
 	this._uuid = uuid;
@@ -16,6 +20,9 @@ var PIDhelper = module.exports = function(uuid) {
 };
 util.inherits(PIDhelper, device);
 
+/**
+ * Initialization
+ */
 PIDhelper.prototype.init = function(config) {
 	config	.name('PIDhelper:'+this._uuid)
 			.type('169')
@@ -31,6 +38,9 @@ PIDhelper.prototype.init = function(config) {
 			.map('set-error',this.setError,[{type:'number',name:'error'}]);
 };
 
+/**
+ * Method for updating PID gains
+ */
 PIDhelper.prototype.setPID = function(p,i,d,cb){
 	console.log(p,i,d);
 	this.p=p;
@@ -39,11 +49,17 @@ PIDhelper.prototype.setPID = function(p,i,d,cb){
 	cb();
 }
 
+/**
+ * Method for updating target illumination level
+ */
 PIDhelper.prototype.setTarget = function(target,cb){
 	this.target=target;
 	cb();
 }
 
+/**
+ * Method for updating allowed error
+ */
 PIDhelper.prototype.setError = function(error,cb){
 	this.error=error;
 	cb();
