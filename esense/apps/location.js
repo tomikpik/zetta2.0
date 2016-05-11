@@ -1,39 +1,50 @@
 
 
 module.exports = function(server) {
-  var helperQuery = server.where({ type: '146' });
-  var last = "";
-  server.observe([helperQuery], function(helper){
-     	    
-     helper.streams.location.on('data', function(obj) {
-	var rssi = -200;
-	var kkey = "";
-	var m = obj.data;
-	Object.keys(m).forEach(function(key){
-		if(m[key]>rssi){
-			rssi=m[key];
-			kkey=key;
-		}
-	});
-   	
-	console.log(rssi,kkey);
+  	var helperQuery = server.where({ type: '169' });
+	var lightQuery = server.where({ id: '4DCC31640E0' });
+  	var last = "";
 
-	if(kkey!=last){
+	var results = new Array(); 
 
-		var lightQuery = server.where({ type: '145' })
-		server.observe([lightQuery], function(light){
-			console.log("light",light.id);	
-			if(light.id==kkey){
-				if(light.available('turn-on')){
-					light.call('turn-on');
-				}
-			} else {
-				if(light.available('turn-off')){
-					light.call('turn-off');
-				}
-			}
+
+  	server.observe([helperQuery, lightQuery], function(helper,light){
+     	    	
+    		helper.streams.location.on('data', function(obj) {
+   			if(helper.state!='proximity')return;
+			var proximityInfo = obj.data;
+			if(proximityInfo.user!="tomas.pikous@gmail.com")return;
+			if(proximityInfo.ssid!="F3:8C:33:42:50:10")return;
+				
+
+			results.push(proximityInfo.level);
+
+			var limit = 5;
+
+			if(results.length>limit)results.shift();			
+			
 		});
-		last=kkey;
-	}
-   });
-});}
+
+		setInterval(function(){ 
+			var sum=0;
+			var count=0;
+			results.forEach(function(entry) {
+    				sum+=entry;
+				count++;
+			});
+	
+			console.log(results);
+			var avg = Math.abs(sum/count);
+			console.log("avg",avg);
+			
+			var input = (avg-55)/20;
+			if(input<0)input=0;
+			if(input>1)input=1;
+
+			input = Math.round(1023*(1-input));
+			console.log("input",input);
+			light.call('set-power',input);
+			
+		}, 750);
+	});
+}

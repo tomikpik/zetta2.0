@@ -22,16 +22,16 @@ LoraScout.prototype.init = function(next) {
     var queue = new Array();
     
     
-    var dev1 = this.discover(LoRaLight, "0004A30B001B28AB");
-    dev1.setQueue(queue);
+    //var dev1 = this.discover(LoRaLight, "0004A30B001B28AB");
+    //dev1.setQueue(queue);
     
 
     var dev3 = this.discover(LoRaLightSensor, "0004A30B001B2898");
 
 
     
-    var dev2 = this.discover(LoRaLight, "0004A30B001B9BEE");
-    dev2.setQueue(queue);
+    //var dev2 = this.discover(LoRaLight, "0004A30B001B9BEE");
+    //dev2.setQueue(queue);
 
     setInterval(function(){
         var tmp = ((new Date).getTime()-self.lastSent);
