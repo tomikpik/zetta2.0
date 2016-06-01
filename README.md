@@ -13,5 +13,6 @@ Next important folder is **esense** which contains:
 - **scouts**: should be used to store scouts for each communication channel (mqtt, 868, ble etc.)
 - **modules**: should contain our modules which we are going to need (authentication, database etc.)
 - **drivers**: drivers for various devices
+- **apps**: scripts for "clever" light control
 
-It uses node.js version 4.2.3LTS
+It uses node.js version 5.7.1
