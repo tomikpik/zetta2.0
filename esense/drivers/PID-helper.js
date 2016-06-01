@@ -10,9 +10,9 @@ var PIDhelper = module.exports = function(uuid) {
 	this._uuid = uuid;
 	this.id = uuid;
 	this._device=undefined;
-	this.p=0.5;
-	this.i=0;
-	this.d=0;
+	this.p=0.53;
+	this.i=0.00;
+	this.d=0.01;
 	this.location=new Object();
 	
 
@@ -26,6 +26,9 @@ PIDhelper.prototype.init = function(config) {
 	config	.name('PIDhelper:'+this._uuid)
 			.type('169')
 			.state('proximity')
+			//.state('intensity')
+			//.state('onoff')
+			
 			.monitor('p')
 			.monitor('i')
 			.monitor('d')
